@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: white;
+        }
+
+        h1{
+            background-color: lightslategray;
+            text-align: center;
+        }
+
+        .parent-rel, .parent-abs, .parent-fixed, .parent-sticky{
+            border: 3px solid black;
+            height: 30rem;
+            width: 30rem;
+        }
+        .child{
+            height: 9rem;
+            width: 10rem;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 30px;
+        }
+        .one{
+            background-color: lightpink;
+        }
+        .two{
+
+            background-color: lightgreen;
+        }
+        .three{
+            background-color: lightskyblue;
+        }
+
+        .parent-rel>.two{
+            /* Positioning will be relative to it's orginal position */
+            /* Even if we move the element from it's orginal position, below elements will not take the moved element place */
+            /* Its (0, 0) starts from it's orginal position*/
+            position: relative;
+            /* top: -10rem; */
+            left: 10rem;
+        }
+
+        .parent-abs>.two{
+            /* Positioning will be relative to the page */
+            /* If we apply absolute to an element, the element will go to another layer and the below elements will takes the position of the moved element  */
+            /* It's (0, 0) starts from page (0, 0) */
+            position: absolute;
+            background-color: rgba(144, 238, 144, 0.432);
+            /* This will be relative to the page. */
+            top: 0rem;
+            
+        }
+        /* If we want the element to be in another layer, but the positioning to be relative to its parent postion apply Position: relative to its parent node */
+        /* Element (0, 0) starts from parent (0, 0) */
+        .parent-abs{
+            position: relative;
+        }
+
+        .parent-fixed>.child{
+            position: fixed;
+            top: 100rem;
+            
+            
+        }
+
+        .parent-sticky>.child{
+            position: sticky;
+
+        }
+
+        
+        
+
+    </style>
+</head>
+<body>
+    
+    <h1>Positioning Fixed </h1>
+    <div class = "parent-fixed">
+        <div class = "child one">1 fixed</div>
+    </div>
+    
+    <h1>Positioning Sticky</h1>
+    <div class = "parent-sticky">
+        <div class = "child one">1 sticky</div>
+    </div>
+
+    <h1>Positioning Relative</h1>
+    <div class = "parent-rel">
+        <div class = "child one">1</div>
+        <div class = "child two">2</div>
+        <div class = "child three">3</div>
+    </div>
+
+    <h1>Positioning Absolute</h1>
+    <div class = "parent-abs">
+        <div class = "child one">1 abs</div>
+        <div class = "child two">2 abs</div>
+        <div class = "child three">3 abs</div>
+    </div>
+
+</body>
+</html>

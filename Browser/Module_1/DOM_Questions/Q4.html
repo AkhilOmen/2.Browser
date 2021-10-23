@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- In Style We use CSS -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-top: 5rem;
+        }
+
+        .Movies {
+            height: 10rem;
+            width: 10rem;
+            margin: 2rem;
+        }
+
+        .Price {
+            background-color: rgb(247 84 33);
+            height: 8rem;
+            padding: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .Heading {
+            background-color: rgba(0, 0, 0, 0.856);
+            height: 2rem;
+        }
+
+        .Heading,
+        .Price {
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        select,
+        h1 {
+            position: fixed;
+        }
+
+        h1 {
+            top: 0px;
+        }
+
+        select {
+            width: 8rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book My Show</h1>
+
+    <select>
+        <option value="None">None</option>
+        <option value="Action">Action</option>
+        <option value="Romance">Romance</option>
+        <option value="Comedy">Comedy</option>
+    </select>
+
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 1</h3>
+        <p class = "Price" data-category = "Action">Rs. 100</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 2</h3>
+        <p class = "Price" data-category = "Action">Rs. 200</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 3</h3>
+        <p class = "Price" data-category = "Action">Rs. 150</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 4</h3>
+        <p class = "Price" data-category = "Romance">Rs. 200</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 5</h3>
+        <p class = "Price" data-category = "Romance">Rs. 300</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 6</h3>
+        <p class = "Price" data-category = "Romance">Rs. 100</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 7</h3>
+        <p class = "Price" data-category = "Action">Rs. 200</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 8</h3>
+        <p class = "Price" data-category = "Action">Rs. 100</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 9</h3>
+        <p class = "Price" data-category = "Comedy">Rs. 100</p>
+    </div>
+    <div class = "Movies">
+        <h3 class = "Heading"> Example - 10</h3>
+        <p class = "Price" data-category = "Comedy">Rs. 100</p>
+    </div>
+
+    <!-- Q4 -->
+    <!-- Make the filter work -->
+
+    <!-- Answer -->
+    <script>
+
+        let select = document.querySelector("select");
+
+        select.addEventListener("change", function(){
+
+            // Selected category.
+            let category = select.value;
+
+            // There are totally 10 movies. Get then in an array.
+            let movielist = document.querySelectorAll(".Movies");
+
+            // Select a category.
+            if( category == "None"){
+
+                // Show all
+                for( let i = 0; i < movielist.length; i++){
+                    movielist[i].style.display = "block";
+                }
+
+            }else{
+
+                for( let i = 0; i < movielist.length; i++){
+
+                    // p is the 1st child of movie & h3 is the 0th child.
+                    let ptag = movielist[i].children[1];
+
+                    // get Category of that perticular ptag
+                    let cCategory = ptag.getAttribute("data-category");
+
+                    if( cCategory != category){
+                        // if Ptag Category != our Selected category Disapper.
+                        movielist[i].style.display = "none";
+                    }else{
+                        // if Ptag Category == our Selected category Visible.
+                        movielist[i].style.display = "block";
+                    }
+
+
+                }
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

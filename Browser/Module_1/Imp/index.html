@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Document Object Model -->
+    <h1> Hello DOM </h1>
+
+    <!-- JavaScript -->
+    <script>
+        
+        // HTML, CSS
+
+        // // Creat
+        let p = document.createElement("p");
+        // p.style.color = "white";
+        p.textContent =  "Thank you for the code";
+
+        // // Read
+        let body = document.querySelector("body");
+        body.appendChild(p);
+
+        // // Update
+        setTimeout(function(){
+            p.textContent = "Come Back";
+        }, 1000)
+
+        // // Delete
+        setTimeout(function(){
+            p.remove()
+        }, 2000);
+
+        // // add CSS using DOM
+        p.style.backgroundColor = "yellow";
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .block{
+            background-color: lightblue;
+            height: 200px;
+            width: 200px;
+            /* If we remove width, it will take parent width */
+        }
+
+        .inline{
+            display: inline;
+            background-color: lightpink;
+            font-size: 50px;
+            /* height: 200px;  */
+            /* As we can see height and width don't effect this element */
+        }
+
+        .inline-block{
+            display: inline-block;
+            background-color: lightgreen;
+            font-size: 15px;
+            height: 50px;
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- 1. block -->
+    <!-- Eg -> div, h1, p, ul, li -->
+    <!-- We can give height and width to this element. Even tough there is some space in the line that perticular next element will be created in the next line  -->
+    <div class = "block">
+        Hello I am block
+    </div>
+
+
+    <!-- 2. inline -->
+    <!-- Eg -> span -->
+    <!-- We can't give height and width to this element. We can insert n number of elements in the same line -->
+    <span class = "inline">
+        Hello I am inline
+    </span>
+
+    <!-- 3. inline-block -->
+    <!-- Eg -> class -->
+    <!-- We can give height and width to this element. We can insert n number of elements in the same line -->
+    <div class = "inline-block">
+        Hello I am inline-block
+    </div>
+    
+
+</body>
+</html>
