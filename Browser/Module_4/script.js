@@ -41,16 +41,19 @@ for(let i = 1; i <= 100; i++){
 let allgridcell = document.querySelectorAll(".grid .cell");
 let addressInput = document.querySelector(".address_input");
 for(let i = 0; i < allgridcell.length; i++){
+    
+    
     allgridcell[i].addEventListener("click", function(e){
-
+        
         let PreviousAddress = addressInput.value;
+        let PCell;
         if( PreviousAddress != ""){
             let PObj = getridcid(PreviousAddress);
             let rid_P = PObj.rid;
             let cid_P = PObj.cid;
             
-            let PCell = document.querySelector(`.grid .cell[rid='${rid_P}'][cid= '${cid_P}']`);
-            PCell.style.border = "0.5px solid black";
+            PCell = document.querySelector(`.grid .cell[rid='${rid_P}'][cid= '${cid_P}']`);
+            PCell.style.border = "0.01px solid rgb(207, 205, 205)";
         }
 
         let rid = allgridcell[i].getAttribute("rid");
@@ -58,17 +61,19 @@ for(let i = 0; i < allgridcell.length; i++){
         // alert(cid + rid);
         addressInput.value = cid+rid;
         let cCell = allgridcell[i];
-        cCell.style.border = "0.5px solid black";
+        cCell.style.border = "2px solid rgb(22, 78, 97)";
+        
     })
 }
 
 let firstcell = document.querySelector(".grid .cell[rid='1'][cid='A']") ;
 firstcell.click();
+firstcell.focus();
 
 function getridcid(address){
 
     let cid = address.charAt(0);
-    let rid = Number(address.charAt(1));
+    let rid = Number(address.slice(1));
 
     return{
         rid: rid,
