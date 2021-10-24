@@ -61,7 +61,7 @@ for(let i = 0; i < allgridcell.length; i++){
         // alert(cid + rid);
         addressInput.value = cid+rid;
         let cCell = allgridcell[i];
-        cCell.style.border = "2px solid rgb(22, 78, 97)";
+        cCell.style.border = "2px solid rgb(33, 121, 156)";
         
     })
 }

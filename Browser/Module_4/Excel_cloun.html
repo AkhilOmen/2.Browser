@@ -5,13 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- font_Awesom Link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- Import Styling from style.css -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <!-- .main_bar+.formula_bar+.grid_container+.sheet_container -->
     
     <!--...............................Main_Bar............................................... -->
-    <div class="main_bar">Main Bar</div>
+    <div class="main_bar">
+        <!-- new, Open, Save -->
+        <div class="new_open_save_container">
+            <div class="icon_container">
+                <i class="fas fa-file"></i>
+            </div>
+            <div class="icon_container">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="icon_container">
+                <i class="fas fa-save"></i>
+            </div>
+            <div class="icon_container">
+                <i class="fas fa-file-download"></i>
+            </div>
+        </div>
+        <!-- font family and font size -->
+        <div class="formatting_container">
+
+            <select class = "font_family_input" >
+                <option value="Aerial">Aerial</option>
+                <option value="sans-serif">sans-serif</option>
+                <option value="veranda">veranda</option>
+                <option value="snas">snas</option>
+            </select>
+
+            <select class = "font_size_input">
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+            </select>
+
+        </div>
+        <!-- Bold, Italic, Underline -->
+        <!-- Colors -->
+        <!-- Alignment -->
+    </div>
 
     
     <!-- .......................Formula_Bar................................................... -->
@@ -49,7 +93,7 @@
     <script src = "script.js"></script>
 
     <!-- Script Imported for Main_Bar -->
-    <script> src = "menu.js" </script>
+    <script src = "MainBar.js"> </script>
 
 </body>
 </html>
