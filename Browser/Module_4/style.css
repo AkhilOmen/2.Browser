@@ -8,25 +8,26 @@ body{
 
 /* .....................Main_Bar................................ */
 .main_bar{
-    height: 5rem;
+    height: 4rem;
     display: flex;
     background-color: white;
     border-bottom: 1px solid black;
+    padding-top: 0.5rem;
 }
 
 
 /* ....New sheet, Save, Download   */
 .new_open_save_container{
-    height: 100%;
+    height: 85%;
     width: 20%;
-    border-right:1px solid black;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
+    border-right:1px solid black;
 }
 
 .icon_container{
-    height: 100%;
+    height:100%;
     width: 25%;
     display: flex;
     justify-content:space-evenly;
@@ -39,7 +40,7 @@ body{
 
 /* .....Font family and Font Size */
 .formatting_container{
-    height: 100%;
+    height: 85%;
     width: 20%;
     border-right:1px solid black;
     display: flex;
@@ -48,11 +49,15 @@ body{
 }
 
 .font_family_input{
-    height: 35%;
+    height: 50%;
     width: 50%;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
+    flex: 2;
+    border:0px;
+    outline:0px;
+    border-right: 1px solid black;
 }
 
 .font_size_input{
@@ -61,11 +66,14 @@ body{
     display: flex;
     justify-content:space-evenly;
     align-items: center;
+    flex: 0.5;
+    border:0px;
+    outline:0px;
 }
 
 /* ..... Font Style  */
 .style_container{
-    height: 100%;
+    height: 85%;
     width: 20%;
     border-right:1px solid black;
     display: flex;
@@ -75,7 +83,7 @@ body{
 
 /* ...Alignment */
 .alignment_container{
-    height: 100%;
+    height: 85%;
     width: 20%;
     border-right:1px solid black;
     display: flex;
@@ -93,10 +101,15 @@ body{
     align-items: center;
 }
 
+.selected{
+    background-color: #a28989;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgb(160 158 158);
+}
 
 /* .............................Formula_Bar............................ */
 .formula_bar{
-    height: 1.5rem;
+    height: 2.5rem;
     background-color: #f1f2f6;
     display: flex;
     align-items: center;
@@ -110,7 +123,7 @@ body{
     font-size: 1.2rem;
 }
 .formula_bar>*{
-    height: 75%;
+    height: 50%;
 }
 .address_input{
     width: 4rem;

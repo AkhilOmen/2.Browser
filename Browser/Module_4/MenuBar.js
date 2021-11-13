@@ -41,7 +41,6 @@ fontstyleInput = document.addEventListener("click", function(e){
         
         if(fontstyleinput == "bold"){
             Cell.style.fontWeight = "bold";
-               
         }
         if(fontstyleinput == "italic"){
             Cell.style.fontStyle = "italic";
