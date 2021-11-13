@@ -10,7 +10,8 @@ body{
 .main_bar{
     height: 5rem;
     display: flex;
-    background-color: #a9a9ac;
+    background-color: white;
+    border-bottom: 1px solid black;
 }
 
 
@@ -118,6 +119,9 @@ body{
 .formula_input{
     width: calc(100vw - 8rem);
 }
+.formula_bar>div{
+    color: black;
+}
 
 /* ............................Grid_Container...................... */
 .grid_container{
@@ -146,6 +150,7 @@ body{
     text-align: center;
     min-width: 5rem;
     background-color:  #f1f2f6; 
+    border-top: none;
 }
 
 .left_col{

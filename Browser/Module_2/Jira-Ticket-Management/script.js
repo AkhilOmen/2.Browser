@@ -205,9 +205,6 @@ function filterCards(filteredCardColor){
 
 
 
-
-
-
 //...........................Remove Containers........................................
 let removeContainer = document.querySelector(".remove_container");
 removeContainer.addEventListener("click", function(){
