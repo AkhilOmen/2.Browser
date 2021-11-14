@@ -83,5 +83,6 @@ function getridcid(address){
 
 
 //........................DataBase............
+let db = [];
 
 

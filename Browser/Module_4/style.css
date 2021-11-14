@@ -102,9 +102,9 @@ body{
 }
 
 .selected{
-    background-color: #a28989;
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgb(160 158 158);
+    background-color: #e6d7d7;
+    /* border-radius: 50%; */
+    box-shadow: 0 0 0 1px black;
 }
 
 /* .............................Formula_Bar............................ */

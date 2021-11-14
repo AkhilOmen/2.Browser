@@ -40,13 +40,37 @@ fontstyleInput = document.addEventListener("click", function(e){
         let Cell = document.querySelector(`.grid .cell[rid = '${CellObj.rid}'][cid = '${CellObj.cid}']`);
         
         if(fontstyleinput == "bold"){
-            Cell.style.fontWeight = "bold";
+            if(activatebold == false){
+                Cell.style.fontWeight = "bold";
+                activatebold = true;
+                element.classList.add("selected");
+            }else{
+                Cell.style.fontWeight = "normal";
+                activatebold = false;
+                element.classList.remove("selected");
+            }
         }
         if(fontstyleinput == "italic"){
-            Cell.style.fontStyle = "italic";
+            if(activateitalic == false){
+                Cell.style.fontStyle = "italic";
+                activateitalic = true;
+                element.classList.add("selected");
+            }else{
+                Cell.style.fontStyle = "normal";
+                activateitalic = false;
+                element.classList.remove("selected");
+            }
         }
         if(fontstyleinput == "underline"){
-            Cell.style.textDecoration = "underline";
+            if(activateunderline == false){
+                Cell.style.textDecoration = "underline";
+                activateunderline = true;
+                element.classList.add("selected");
+            }else{
+                Cell.style.textDecoration = "none";
+                activateunderline = false;
+                element.classList.remove("selected");
+            }
         }
         
     }
@@ -55,7 +79,12 @@ fontstyleInput = document.addEventListener("click", function(e){
 
 // ...................Alignment Container....................
 let AlignmentInput = document.querySelector(".alignment_container");
-
+let AllAlignmentInput = document.querySelectorAll(".alignment_container div i")
+let alignleftActive = false;
+let alignrightActive = false;
+let aligncenterActive = false;
+let alignjustifyActive = false;
+// console.log(AlignmentInput);
 AlignmentInput.addEventListener("click", function(e){
     let element = e.target;
     // console.log(element);
@@ -66,8 +95,88 @@ AlignmentInput.addEventListener("click", function(e){
         let CellObj = getridcid(CellAddress);
         let Cell = document.querySelector(`.grid .cell[rid = '${CellObj.rid}'][cid = '${CellObj.cid}']`);
         
-        Cell.style.textAlign = alignInput;
         
+        if(alignInput == "left"){
+            
+            if( alignleftActive == false){
+                for( let i = 0; i < AllAlignmentInput.length; i++ ){
+                    AllAlignmentInput[i].classList.remove("selected")
+                }
+                Cell.style.textAlign = alignInput;
+                alignleftActive = true;
+                alignrightActive = false;
+                aligncenterActive = false;
+                alignjustifyActive = false;
+                element.classList.add("selected");
+            }else{
+                Cell.style.textAlign = "left";
+                alignleftActive = false;
+                element.classList.remove("selected");
+            }
+            
+        }
+        
+        if(alignInput == "right"){
+            
+            if( alignrightActive == false){
+                for( let i = 0; i < AllAlignmentInput.length; i++ ){
+                    AllAlignmentInput[i].classList.remove("selected")
+                }
+                Cell.style.textAlign = alignInput;
+                alignrightActive = true;
+                alignleftActive = false;
+                aligncenterActive = false;
+                alignjustifyActive = false;
+                element.classList.add("selected");
+            }else{
+                Cell.style.textAlign = "left";
+                alignrightActive = false;
+                element.classList.remove("selected");
+            }
+            
+        }
+        
+        if(alignInput == "center"){
+            
+            if( aligncenterActive == false){
+                for( let i = 0; i < AllAlignmentInput.length; i++ ){
+                    AllAlignmentInput[i].classList.remove("selected")
+                }
+                Cell.style.textAlign = alignInput;
+                aligncenterActive = true;
+                alignleftActive = false;
+                alignrightActive = false;
+                alignjustifyActive = false;
+                element.classList.add("selected");
+            }else{
+                Cell.style.textAlign = "left";
+                aligncenterActive = false;
+                element.classList.remove("selected");
+            }
+            
+        }
+        
+        if(alignInput == "justify"){
+            
+            if( alignjustifyActive == false){
+                for( let i = 0; i < AllAlignmentInput.length; i++ ){
+                    AllAlignmentInput[i].classList.remove("selected")
+                }
+                Cell.style.textAlign = alignInput;
+                alignjustifyActive = true;
+                alignleftActive = false;
+                alignrightActive = false;
+                aligncenterActive = false;
+                element.classList.add("selected");
+            }else{
+                Cell.style.textAlign = "left";
+                alignjustifyActive = false;
+                element.classList.remove("selected");
+            }
+            
+        }
+        
+
     }
 
 })
@@ -101,7 +210,6 @@ backgroundInput.addEventListener("click", function(){
 
 hiddenbackgroundInput.addEventListener("change", function(){
     let backgroundclr = hiddenbackgroundInput.value;
-    console.log()
     let CellAddress = addressInput.value;
     let CellObj = getridcid(CellAddress);
     let Cell = document.querySelector(`.grid .cell[rid = '${CellObj.rid}'][cid = '${CellObj.cid}']`);
