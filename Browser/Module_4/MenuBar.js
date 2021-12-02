@@ -32,7 +32,7 @@ let activateunderline = false;
 fontstyleInput = document.addEventListener("click", function(e){
     let element = e.target;
     // console.log(element);
-    let fontstyleinput = element.classList[1].split("-")[1];
+    let fontstyleinput = element.classList[2];
     // console.log(fontstyleinput);
     if(fontstyleinput == 'bold' || fontstyleinput == 'italic' || fontstyleinput == 'underline'){
         let CellAddress = addressInput.value;
@@ -88,7 +88,7 @@ let alignjustifyActive = false;
 AlignmentInput.addEventListener("click", function(e){
     let element = e.target;
     // console.log(element);
-    let alignInput = element.classList[1].split("-")[2];
+    let alignInput = element.classList[2];
     // console.log(alignInput);
     if(alignInput == 'right' || alignInput == 'left' || alignInput == 'center' || alignInput == 'justify'){
         let CellAddress = addressInput.value;

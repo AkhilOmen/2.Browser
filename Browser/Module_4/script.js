@@ -82,7 +82,34 @@ function getridcid(address){
 }
 
 
-//........................DataBase............
+//....................DataBase.............................DataBase..................................DataBase..................
 let db = [];
+for( let i = 0; i < 100; i++){
+    let rowArr = [];
+    for( let j = 0; j < 26; j++){
+        
+        let CellObject = {
+            color: "black",
+            backgroundColor: "white",
+            fontFamily: "'Arial'" ,
+            fontSize: 14,
+            halign: "center",
+            bold: false,
+            italic: false,
+            underline: false,
+            value: ""
+        }
+
+        rowArr.push(CellObject);
+        
+    }
+    db.push(rowArr);
+}
+
+// console.log(db);
+let AllGridcells = document.querySelectorAll(".grid .cell");
+console.log(AllGridcells);
+
+
 
 
