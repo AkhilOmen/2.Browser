@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        crossorigin="anonymous"
+    />
+
+    <style>
+        .fas{
+            color: rgba(0, 0, 0, 0.87);
+            margin-left: 1rem;
+            margin-right: 3rem;
+        }
+        
+        canvas{
+            border: 1px solid rgba(0, 0, 0, 0.555);
+        }
+    </style>
+
+</head>
+<body>
+   
+    <h1>2. Canvas Drawing Basics</h1>
+    <i class="fas fa-rectangle-wide fa-3x"></i>
+    <i class="fas fa-grip-lines fa-3x"></i>
+    <canvas></canvas>
+
+    <script>
+
+        let CanvasBoard2 = document.querySelector("canvas");
+        CanvasBoard2.height = 500;
+        CanvasBoard2.width = window.innerWidth;
+
+        let tool2 = CanvasBoard2.getContext("2d");
+
+        
+        // managing the offset while drawing
+        // console.log( CanvasBoard2.getBoundingClientRect());
+        let movelet = CanvasBoard2.getBoundingClientRect().left;
+        let movetop = CanvasBoard2.getBoundingClientRect().top;
+        
+
+        // Tool Selection
+        let rectTool = document.querySelector(".fas.fa-rectangle-wide");
+        let lineTool = document.querySelector(".fas.fa-grip-lines");
+        let SelectedTool = "rectTool";
+
+        rectTool.addEventListener("click", function(){
+            console.log("recTool Selected");
+            SelectedTool = "rectTool"
+        })
+        
+        lineTool.addEventListener("click", function(){
+            console.log("lineTool Selected");
+            SelectedTool = "lineTool";
+        })
+
+        // 4.
+        // Lets see how we can draw a line.
+            // (i) -> First we need to identify Stating point and ending point
+            // (ii) -> From Canvas concepts we need to join the points and UI
+        // 
+        // (i) -> here we are going to add even listener to mousedown and mouseup to find out (x,y) of stating point and ending point
+        // 
+        let body = document.querySelector("body");
+        let iX, iY, fX, fY;
+        body.addEventListener("mousedown", function(e){
+
+            iX = e.clientX - movelet;
+            iY = e.clientY - movetop;
+
+            // console.log(iX, iY);
+        })
+        
+        body.addEventListener("mouseup", function(e){
+            fX = e.clientX - movelet;
+            fY = e.clientY - movetop;
+            let height = fY - iY;
+            let width = fX - iX;
+            
+            if( SelectedTool == "rectTool"){
+                tool2.strokeRect(iX, iY, width, height);
+            }else{
+                tool2.beginPath()
+                tool2.moveTo(iX, iY);
+                tool2.lineTo(fX, fY);
+
+                tool2.stroke()
+            }
+        })
+        
+        // (ii) ->
+
+    </script>
+
+
+
+
+</body>
+</html>

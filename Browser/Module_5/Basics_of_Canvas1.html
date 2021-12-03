@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>1. Canvas Basics</h1>
+    <!-- Canvas is basically a drawing board type tag -->
+    <canvas></canvas>
+    
+
+
+    <script>
+        let CanvasBoard1 = document.querySelector("canvas");
+        // The default height and default width are 300px and 500px
+        
+        // Here we are going to give some height and width
+        CanvasBoard1.height = 500;
+        CanvasBoard1.width = window.innerWidth;
+
+        // We are going to create a 2D tool
+        let tool1 = CanvasBoard1.getContext("2d"); 
+
+        // 1.
+        // All styling should be given above the "fillRect"
+        tool1.fillStyle = "lightblue";
+        // Rectangle
+        tool1.fillRect(0, 0, 200, 200); // x, y, width, height
+        // x , y start from 0 , 0 of canvas
+
+        // 2.
+        // Used to draw boarder
+        tool1.strokeStyle = "red";
+        tool1.strokeRect( 50, 50, 200, 200);
+
+        // 3.
+        // Another rectangle box
+        tool1.fillStyle = "lightpink";
+        tool1.fillRect(40, 40, 100, 100);
+
+        
+    </script>
+
+</body>
+</html>
