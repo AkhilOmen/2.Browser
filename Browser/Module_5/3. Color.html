@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .color_container{
+            border: 1px solid rgba(109, 108, 108, 0.253);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 25%;
+            height: 4rem;
+            border-radius: 5rem;
+            background-color: rgb(231, 228, 228);
+            margin-bottom: 3rem;
+        }
+
+        body>div>div{
+            border-radius: 100%;
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid rgba(109, 108, 108, 0.253);
+        }
+
+        .color1{
+            background-color:lightblue;
+        }
+        .color2{
+            background-color: lightpink;
+        }
+        .color3{
+            background-color: lightgreen;
+        }
+        .color4{
+            background-color: black;
+        }
+
+        .selected_color_box{
+            border: 1px solid rgba(109, 108, 108, 0.253);
+            width: 25%;
+            height: 10rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "color_container">
+        <div class = "color1"></div>
+        <div class = "color2"></div>
+        <div class = "color3"></div>
+        <div class = "color4"></div>
+    </div>
+
+    <div class = "selected_color_box"></div>
+
+    <script>
+        let ColorContainer = document.querySelector(".color_container");
+        let SelectedBoxColor = document.querySelector(".selected_color_box");
+
+        let SelectedColor = "black";
+
+        ColorContainer.addEventListener("click", function(e){
+            let ele = e.target;
+            if( ele != "color_container"){
+                let selectele = ele.classList.value;
+                
+                if( selectele == "color1"){
+                    SelectedColor = "lightblue";
+                }
+
+                if( selectele == "color2"){
+                    SelectedColor = "lightpink";
+                }
+
+                if( selectele == "color3"){
+                    SelectedColor = "lightgreen";
+                }
+
+                if( selectele == "color4"){
+                    SelectedColor = "black";
+                }
+
+            }
+            SelectedBoxColor.style.backgroundColor = SelectedColor;
+        })
+    </script>
+
+</body>
+</html>
