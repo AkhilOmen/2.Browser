@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        crossorigin="anonymous"
+    />
+
+    <style>
+        .fas{
+            color: rgba(0, 0, 0, 0.87);
+            margin-left: 1rem;
+            margin-right: 3rem;
+        }
+        
+        canvas{
+            border: 1px solid rgba(0, 0, 0, 0.555);
+        }
+    </style>
+    
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .color_container{
+            border: 1px solid rgba(109, 108, 108, 0.253);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 25%;
+            height: 4rem;
+            border-radius: 5rem;
+            background-color: rgb(231, 228, 228);
+            margin-bottom: 3rem;
+        }
+
+        body>div>div>div{
+            border-radius: 100%;
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid rgba(109, 108, 108, 0.253);
+        }
+
+        .color1{
+            background-color:lightblue;
+        }
+        .color2{
+            background-color: lightpink;
+        }
+        .color3{
+            background-color: lightgreen;
+        }
+        .color4{
+            background-color: black;
+        }
+
+    </style>
+
+    <style>
+        .menu_bar{
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class = "menu_bar">
+        <i class="fas fa-rectangle-wide fa-3x"></i>
+        <i class="fas fa-grip-lines fa-3x"></i>
+        
+        <div class = "color_container">
+            <div class = "color1"></div>
+            <div class = "color2"></div>
+            <div class = "color3"></div>
+            <div class = "color4"></div>
+        </div>
+    </div>
+
+    <canvas></canvas>
+
+    <script>
+
+        let CanvasBoard2 = document.querySelector("canvas");
+        CanvasBoard2.height = 500;
+        CanvasBoard2.width = window.innerWidth;
+
+        let tool2 = CanvasBoard2.getContext("2d");
+
+        // managing the offset while drawing
+        let movelet = CanvasBoard2.getBoundingClientRect().left;
+        let movetop = CanvasBoard2.getBoundingClientRect().top;
+        
+
+        // Tool Selection
+        let rectTool = document.querySelector(".fas.fa-rectangle-wide");
+        let lineTool = document.querySelector(".fas.fa-grip-lines");
+        let SelectedTool = "rectTool";
+         rectTool.addEventListener("click", function(){
+            console.log("recTool Selected");
+            SelectedTool = "rectTool"
+        })
+        lineTool.addEventListener("click", function(){
+            console.log("lineTool Selected");
+            SelectedTool = "lineTool";
+        })
+
+
+        // Draw
+        let body = document.querySelector("body");
+        let iX, iY, fX, fY;
+        body.addEventListener("mousedown", function(e){
+            iX = e.clientX - movelet;
+            iY = e.clientY - movetop;
+        })
+        
+        body.addEventListener("mouseup", function(e){
+            fX = e.clientX - movelet;
+            fY = e.clientY - movetop;
+            let height = fY - iY;
+            let width = fX - iX;
+            
+            if( SelectedTool == "rectTool"){
+                tool2.strokeRect(iX, iY, width, height);
+            }else{
+                tool2.beginPath()
+                tool2.moveTo(iX, iY);
+                tool2.lineTo(fX, fY);
+                tool2.stroke()
+            }
+        })
+
+
+        // Color selection
+        let ColorContainer = document.querySelector(".color_container");
+
+        let SelectedColor = "black";
+
+        ColorContainer.addEventListener("click", function(e){
+            let ele = e.target;
+            if( ele != "color_container"){
+                let selectele = ele.classList.value;
+                
+                if( selectele == "color1"){
+                    SelectedColor = "lightblue";
+                }
+
+                if( selectele == "color2"){
+                    SelectedColor = "lightpink";
+                }
+
+                if( selectele == "color3"){
+                    SelectedColor = "lightgreen";
+                }
+
+                if( selectele == "color4"){
+                    SelectedColor = "black";
+                }
+
+            }
+            tool.strokeStyle = SelectedColor;
+        })
+        
+
+    </script>
+
+</body>
+</html>
