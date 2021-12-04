@@ -38,13 +38,13 @@
     border: 1px solid rgba(109, 108, 108, 0.253);
 }
 
-.lightpink{
+.pink{
     background-color: lightpink;
 }
-.lightblue{
+.blue{
     background-color:lightblue;
 }
-.lightgreen{
+.green{
     background-color: lightgreen;
 }
 .black{
@@ -67,8 +67,12 @@
     margin: 1rem;
 }
 
-.fas{
-    font-size: 1.7rem;
+.selected{
+    border: 1px solid rgba(109, 108, 108, 0.253);
+    width: 7%;
+    height: 4rem;
+    border-radius: 5rem;
+    background-color: rgb(231, 228, 228);
 }
 
 canvas{
